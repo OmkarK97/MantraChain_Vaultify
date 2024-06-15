@@ -78,7 +78,11 @@ import instagram from "./socials/instagram.svg";
 import telegram from "./socials/telegram.svg";
 import twitter from "./socials/twitter.svg";
 
-import chevronDown from './chevron-down.svg'
+import chevronDown from './chevron-down.svg';
+
+import dollar from './Dollar.svg';
+import locked from './Locked.svg';
+import pool_stats from './PoolStats.png';
 
 export {
   brainwave,
@@ -152,5 +156,8 @@ export {
   mantra,
   cosmos,
   cosmosjs,
-  chevronDown
+  chevronDown,
+  dollar,
+  locked,
+  pool_stats
 };

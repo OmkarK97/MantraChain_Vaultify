@@ -85,10 +85,26 @@ export default {
         "benefit-card-4": "url(assets/benefits/card-4.svg)",
         "benefit-card-5": "url(assets/benefits/card-5.svg)",
         "benefit-card-6": "url(assets/benefits/card-6.svg)",
+        'custom-gradient': 'linear-gradient(180deg, #1C1C1E 0%, #2E2E30 100%)',
       },
     },
   },
   plugins: [
+
+    function ({ addUtilities }) {
+      const newUtitlites = {
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          '-ms-overflow-style': 'none',
+          "scrollbar-width": 'none'
+        }
+      }
+      addUtilities(newUtitlites);
+    },
+
+
     plugin(function ({ addBase, addComponents, addUtilities }) {
       addBase({});
       addComponents({

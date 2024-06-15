@@ -6,7 +6,7 @@ import Pool from "./Pool";
 
 const LayoutPool = () => {
   return (
-    <div>
+    <div className="flex flex-col h-screen w-full overflow-auto no-scrollbar">
       <HeaderSwap />
       <Pool />
       {/* <Logic /> */}

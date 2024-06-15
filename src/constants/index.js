@@ -38,6 +38,19 @@ import {
     cosmosjs
 } from '../assets';
 
+const ETHTokenImage = 'https://icons-ckg.pages.dev/stargate-light/tokens/eth.svg';
+
+export const PoolDeatils = [
+    { id: '1', token: 'ETH', liquidity: '$69.05M', volume: '$287,313.94', balance: '0.00', img: ETHTokenImage },
+    { id: '2', token: 'ETH', liquidity: '$42.08M', volume: '$2,809,063.88', balance: '0.00', img: ETHTokenImage },
+    { id: '3', token: 'USDC', liquidity: '$28.86M', volume: '$1,213,309.13', balance: '0.00', img: ETHTokenImage },
+    { id: '4', token: 'USDT', liquidity: '$21.9M', volume: '$1,705,613.79', balance: '0.00', img: ETHTokenImage },
+    { id: '5', token: 'ETH', liquidity: '$18.63M', volume: '$5,349,700.51', balance: '0.00', img: ETHTokenImage },
+    { id: '6', token: 'USDC', liquidity: '$18.61M', volume: '$192,285.36', balance: '0.00', img: ETHTokenImage },
+    { id: '7', token: 'ETH', liquidity: '$18.19M', volume: '$139,781.19', balance: '0.00', img: ETHTokenImage },
+    { id: '8', token: 'USDC', liquidity: '$18.19M', volume: '$26,151.29', balance: '0.00', img: ETHTokenImage },
+]
+
 export const navigationHomePage = [
     {
         id: "0",
