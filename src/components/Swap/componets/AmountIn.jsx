@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles";
 import { useOnClickOutside } from "../../../../utils/index";
-import { useEffect, useRef, useState } from "react";
 import { chevronDown } from "../../../assets";
 
 const AmountIn = ({
@@ -13,15 +13,17 @@ const AmountIn = ({
   isSwapping,
 }) => {
   const [showList, setShowList] = useState(false);
-  const [activeCurrency, setActiveCurrency] = useState("Select");
+  const [activeCurrency, setActiveCurrency] = useState(currencyValue);
   const ref = useRef();
 
   useOnClickOutside(ref, () => setShowList(false));
 
   useEffect(() => {
-    if (Object.keys(currencies).includes(currencyValue))
-      setActiveCurrency(currencies[currencyValue]);
-    else setActiveCurrency("Select");
+    if (currencies.includes(currencyValue)) {
+      setActiveCurrency(currencyValue);
+    } else {
+      setActiveCurrency("Select");
+    }
   }, [currencies, currencyValue]);
 
   return (
@@ -37,12 +39,12 @@ const AmountIn = ({
         className={styles.amountInput}
       />
 
-      <div className="relative" onClick={() => setShowList(!showList)}>
+      <div className="relative">
         <button className={styles.currencyButton}>
-          {activeCurrency}
+          OM
           <img
             src={chevronDown}
-            alt="cheveron-down"
+            alt="chevron-down"
             className={`w-4 h-4 object-contain ml-2 ${
               showList ? "rotate-180" : "rotate-0"
             }`}
@@ -51,19 +53,19 @@ const AmountIn = ({
 
         {showList && (
           <ul ref={ref} className={styles.currencyList}>
-            {Object.entries(currencies).map(([token, tokenName], index) => (
+            {currencies.map((token, index) => (
               <li
                 key={index}
                 className={`${styles.currencyListItem} ${
-                  activeCurrency === tokenName ? "bg-site-dim2" : ""
+                  activeCurrency === token ? "bg-site-dim2" : ""
                 } cursor-pointer`}
                 onClick={() => {
                   if (typeof onSelect === "function") onSelect(token);
-                  setActiveCurrency(tokenName);
+                  setActiveCurrency(token);
                   setShowList(false);
                 }}
               >
-                {tokenName}
+                {token}
               </li>
             ))}
           </ul>

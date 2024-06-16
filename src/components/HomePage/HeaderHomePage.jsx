@@ -63,7 +63,7 @@ const HeaderHomePage = () => {
           <HambugerMenu />
         </nav>
 
-        <Link to="/Earn">
+        <Link to="/Vault">
           <Button className="hidden lg:flex">Get Started</Button>
         </Link>
 

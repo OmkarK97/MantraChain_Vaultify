@@ -83,6 +83,12 @@ import chevronDown from './chevron-down.svg';
 import dollar from './Dollar.svg';
 import locked from './Locked.svg';
 import pool_stats from './PoolStats.png';
+import wallet from './wallet.svg';
+import swap from './DoubleArrow.png';
+import vault from './Vaults.png';
+import bag from './RuppeeBag.png';
+import OmToken from './OmToken.svg';
+import goldToken from './GoldToken.png';
 
 export {
   brainwave,
@@ -159,5 +165,11 @@ export {
   chevronDown,
   dollar,
   locked,
-  pool_stats
+  pool_stats,
+  wallet,
+  swap,
+  vault,
+  bag,
+  OmToken,
+  goldToken
 };

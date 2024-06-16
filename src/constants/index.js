@@ -35,20 +35,22 @@ import {
     twitter,
     mantra,
     cosmos,
-    cosmosjs
+    cosmosjs,
+    OmToken
 } from '../assets';
 
-const ETHTokenImage = 'https://icons-ckg.pages.dev/stargate-light/tokens/eth.svg';
+const ETHTokenImage = OmToken;
 
 export const PoolDeatils = [
-    { id: '1', token: 'ETH', liquidity: '$69.05M', volume: '$287,313.94', balance: '0.00', img: ETHTokenImage },
-    { id: '2', token: 'ETH', liquidity: '$42.08M', volume: '$2,809,063.88', balance: '0.00', img: ETHTokenImage },
-    { id: '3', token: 'USDC', liquidity: '$28.86M', volume: '$1,213,309.13', balance: '0.00', img: ETHTokenImage },
-    { id: '4', token: 'USDT', liquidity: '$21.9M', volume: '$1,705,613.79', balance: '0.00', img: ETHTokenImage },
-    { id: '5', token: 'ETH', liquidity: '$18.63M', volume: '$5,349,700.51', balance: '0.00', img: ETHTokenImage },
-    { id: '6', token: 'USDC', liquidity: '$18.61M', volume: '$192,285.36', balance: '0.00', img: ETHTokenImage },
-    { id: '7', token: 'ETH', liquidity: '$18.19M', volume: '$139,781.19', balance: '0.00', img: ETHTokenImage },
-    { id: '8', token: 'USDC', liquidity: '$18.19M', volume: '$26,151.29', balance: '0.00', img: ETHTokenImage },
+    { id: '1', token: 'GOLD/OM', liquidity: '$69.05M', volume: '$287,313.94', balance: '0.00', img: ETHTokenImage },
+    { id: '2', token: 'SILVER/OM', liquidity: '$42.08M', volume: '$2,809,063.88', balance: '0.00', img: ETHTokenImage },
+    { id: '3', token: 'TSLA/OM', liquidity: '$28.86M', volume: '$1,213,309.13', balance: '0.00', img: ETHTokenImage },
+]
+
+export const VaultDetails = [
+    { id: '1', title: 'Sliver Vault', percentage: '12.89%', time: 'APY' },
+    { id: '2', title: 'Gold Vault', percentage: '10.89%', time: 'APY' },
+    { id: '3', title: 'Gold-Sliver Vault', percentage: '7.89%', time: 'APY' }
 ]
 
 export const navigationHomePage = [
@@ -80,21 +82,26 @@ export const navigation = [{
     url: "/Earn",
 },
 {
-    id: "1",
+    id: '1',
+    title: 'Vault',
+    url: "/Vault",
+},
+{
+    id: "2",
     title: "Swap",
     url: "/Swap",
 },
 {
-    id: "2",
+    id: "3",
     title: "Stake",
-    url: "/",
+    url: "/Stake",
 },
 {
-    id: "3",
-    title: "Synthetics",
-    url: "/",
-}, {
     id: "4",
+    title: "Synthetics",
+    url: "/Synthetics",
+}, {
+    id: "5",
     title: 'Pools',
     url: "/Pools",
 }

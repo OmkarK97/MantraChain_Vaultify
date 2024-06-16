@@ -67,7 +67,7 @@ const Pool = () => {
           Available Pools
         </div>
         <div className="p-10 h-full">
-          <div className="flex flex-wrap -m-4 w-[80%] mx-auto mt-10">
+          <div className="flex flex-wrap justify-between -m-4 w-[80%] mx-auto mt-10">
             {PoolDeatils.map((card) => (
               <Card
                 key={card.id}

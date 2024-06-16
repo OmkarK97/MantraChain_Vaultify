@@ -11,13 +11,16 @@ import {
 const contractAddress =
   "mantra1p73558u0g52e96tzna8uhaea0v3mtda7whxqaxq6due44kgvu2aqzjk06h";
 const rpc = "https://rpc.hongbai.mantrachain.io";
+
 const tokenContractAddress1 =
   "mantra1mv4f3tne3wsrvu703gkggz8m7cjuce7lgfxhhv90r7syfyg2hgssuc8hup";
 
 const tokenContractAddress2 =
   "mantra1lezfs900eury8mtlncx3mqmtnx674hueteafs7ulzty9s4ftz6nsl3tswt";
+
 const spenderAddress =
-  "mantra1azschuzgy8vqjsxznj6mc5wyw0046m0avc8ea40hslmwgp0v286sgvqtr3"; // Replace with the spender's address
+  "mantra1azschuzgy8vqjsxznj6mc5wyw0046m0avc8ea40hslmwgp0v286sgvqtr3";
+// Replace with the spender's address
 const amount = "10000000";
 
 function Logic() {

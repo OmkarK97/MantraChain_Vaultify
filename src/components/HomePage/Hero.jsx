@@ -41,7 +41,7 @@ const Hero = () => {
             <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
               Now you can invest in RWA&apos;s using our vaults on MantraChain
             </p>
-            <Link to="/Earn">
+            <Link to="/Vault">
               <Button white>Get started</Button>
             </Link>
           </div>
