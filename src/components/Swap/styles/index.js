@@ -1,6 +1,6 @@
 const styles = {
     // App.js
-    container: "flex justify-center h-[655px] w-full sm:px-16 px-6 bg-site-black",
+    container: "flex justify-center h-screen w-full sm:px-16 px-6 bg-site-black",
     innerContainer:
         "flex justify-between items-center flex-col max-w-[1280px] w-full",
     header: "flex flex-row justify-between items-center w-full sm:py-10 py-6",

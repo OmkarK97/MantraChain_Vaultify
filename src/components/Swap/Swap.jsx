@@ -15,7 +15,7 @@ const Swap = () => {
             <div className={styles.exchangeBox}>
               <div className="pink_gradient" />
               <div className={styles.exchange}>
-                <Content title="Start" />
+                <Content />
               </div>
               <div className="blue_gradient" />
             </div>

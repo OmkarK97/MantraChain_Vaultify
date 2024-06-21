@@ -10,6 +10,7 @@ import {
   SigningCosmWasmClient,
 } from "@cosmjs/cosmwasm-stargate";
 import { coins } from "@cosmjs/stargate";
+import { toast, ToastContainer } from "react-toastify";
 
 const rpc = "https://rpc.hongbai.mantrachain.io";
 const fee = {
@@ -41,7 +42,23 @@ const Content = () => {
   const [token1_Balance, setToken1_Balance] = useState(0);
   const [token2_Balance, setToken2_Balance] = useState(0);
 
-  const executeTransaction = async (contractAddress, msg, feeType) => {
+  const notify = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
+
+  const executeTransaction = async (
+    contractAddress,
+    msg,
+    msgToast,
+    feeType
+  ) => {
     const offlineSigner = getOfflineSigner();
     const client = await SigningCosmWasmClient.connectWithSigner(
       rpc,
@@ -54,6 +71,7 @@ const Content = () => {
       fee[feeType]
     );
     console.log("Transaction result:", result);
+    notify(msgToast);
   };
 
   const QueryBalance = async () => {
@@ -124,7 +142,12 @@ const Content = () => {
         amount,
       },
     };
-    await executeTransaction(contractAddress, increaseAllowanceMsg, "add");
+    await executeTransaction(
+      contractAddress,
+      increaseAllowanceMsg,
+      "Allowance increased successfully!",
+      "add"
+    );
   };
 
   const swapToken = async () => {
@@ -135,7 +158,12 @@ const Content = () => {
         min_output: "0",
       },
     };
-    await executeTransaction(lpPoolAddress, addLiquidityMsg, "add");
+    await executeTransaction(
+      lpPoolAddress,
+      addLiquidityMsg,
+      "Swap was SuccessFull!",
+      "add"
+    );
   };
 
   const handleApprove = async () => {
@@ -145,7 +173,8 @@ const Content = () => {
   };
 
   return (
-    <div className="flex flex-col w-full items-center">
+    <div className="h-full flex flex-col w-full items-center">
+      <ToastContainer />
       <div className="mb-8 w-[100%]">
         <AmountIn
           value={fromValue}

@@ -5,6 +5,7 @@ import {
 } from "@cosmjs/cosmwasm-stargate";
 import { coins } from "@cosmjs/stargate";
 import { useChain } from "@cosmos-kit/react";
+import { toast, ToastContainer } from "react-toastify";
 
 const rpc = "https://rpc.hongbai.mantrachain.io";
 const fee = {
@@ -26,7 +27,23 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
   const [DepositBalance, setDepositBalance] = useState("0");
   const [withdrawBalance, setWithdrawBalance] = useState("0");
 
-  const executeTransaction = async (contractAddress, msg, feeType) => {
+  const notify = (msg) =>
+    toast.success(msg, {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+    });
+
+  const executeTransaction = async (
+    contractAddress,
+    msg,
+    msgToast,
+    feeType
+  ) => {
     const offlineSigner = getOfflineSigner();
     const client = await SigningCosmWasmClient.connectWithSigner(
       rpc,
@@ -39,6 +56,7 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
       fee[feeType]
     );
     console.log("Transaction result:", result);
+    notify(msgToast);
   };
 
   useEffect(() => {
@@ -52,7 +70,12 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
         amount,
       },
     };
-    await executeTransaction(contractAddress, increaseAllowanceMsg, "add");
+    await executeTransaction(
+      contractAddress,
+      increaseAllowanceMsg,
+      "Allowance increased successfully!",
+      "add"
+    );
   };
 
   const Deposit = async () => {
@@ -61,7 +84,12 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
         amount: DepositAmount,
       },
     };
-    await executeTransaction(VaultAddress, depositMsg, "add");
+    await executeTransaction(
+      VaultAddress,
+      depositMsg,
+      "Deposit was successfull!",
+      "add"
+    );
   };
 
   const Withdraw = async () => {
@@ -70,7 +98,12 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
         share: withdrawAmount,
       },
     };
-    await executeTransaction(VaultAddress, depositMsg, "add");
+    await executeTransaction(
+      VaultAddress,
+      depositMsg,
+      "Withdraw was successfull!",
+      "add"
+    );
   };
 
   const QueryBalance = async () => {
@@ -107,7 +140,8 @@ const VaultManager = ({ isOpen, onClose, vault }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur">
+    <div className="h-full w-full fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur">
+      <ToastContainer />
       <div className="bg-site-black rounded-lg w-1/3">
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-bold">Manage {vault.title}</h2>
